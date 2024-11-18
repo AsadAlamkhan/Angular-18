@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-4">
+        one way from .ts to .html
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-4 bg-success">
+                interpolation
+                <h4>{{Employee}}</h4>
+                <input type="{{inputType}}" />
+                <input type="{{type}}" />
+            </div>
+            <div class="{{MyClass}}">Class Through Variable Interpolation</div>
+        </div>
+    </div>
+    <div class="col-4">
+        property binding
+        <div [class]="MyClass">Class Through Variable Property Binding</div>
+        <input type="text" [value]="Employee"/>
+
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success" (click)="ShowAlert('Welcome to Angular')">Show Welcome</button>
+        <span (click)="ShowAlert('Click From Span')">Click Me</span>
+        <button class="btn btn-success" (click)="changeEmployeeName()">Change Name</button>
+    </div>   
+</div>
+<div class="row">
+     <div class="col-4 mt-5">
+        <input type="text" [(ngModel)]="Employee"/> -{{Employee}}
+        <input type="checkbox" [(ngModel)]="isPakistani"/>
+        <select [(ngModel)]="stateName">
+            <option value="">Select</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Swat">Swat</option>
+            <option value="Karachi">Karachi</option>
+        </select>
+        <h2>{{lastName()}}</h2>
+    </div>
+</div>
