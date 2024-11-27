@@ -1,0 +1,31 @@
+<div class="mt-2 p-2 bg-secondary text-white">
+    <h1>Ng-Template</h1>
+</div>
+<div class="row pt-3">
+    <div class="col-3">
+        <div class="bg-warning p-3" *ngIf="IsUserLoggedIn; else notlogged">
+            {{UserLoggedName}} <span> is logged in</span>
+        </div>
+        <ng-template #notlogged>
+            <div class="bg-success p-3">
+                <span>User is not logged in</span>
+            </div>
+        </ng-template>
+    </div>
+    <div class="col-4">
+        <ng-template #dynamicTemp>
+            <p>Hello from ng-template</p>
+        </ng-template>
+        <ng-template #dynamicTemp1>
+            <p>Hello from another ng-template</p>
+        </ng-template>
+    </div>
+    <div class="col-4">
+        <div #dynamicConta></div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="loadTemplate()">Load Content</button>
+    </div>
+</div>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DepartmentService } from '../../../service/department.service';
 
 @Component({
   selector: 'app-if-else',
@@ -19,10 +20,15 @@ export class IfElseComponent {
   selectedstatus = '';
   
   
-  constructor(private router:Router){
-  
+  constructor(private deptservc: DepartmentService){
+    this.deptservc.onChangedRole$.subscribe((role: string)=> {
+      debugger;
+    });
+    this.deptservc.role$.subscribe((role: string)=> {
+      debugger;
+    })
   }
-  
+
   
   showDiv1(){
     this.isDiv1Visible = true;

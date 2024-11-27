@@ -10,7 +10,7 @@
         <input type="text" name="firstName" #fname="ngModel" [(ngModel)]="studentObj.firstName" class="form-control" required minlength="3">
         <div class="text-danger">
           @if((fname.touched || fname.dirty) && fname.errors?.['required']){
-            <span>this is required</span>
+            <span>{{validationMsg.REQUIRED}}</span>
           } @else if((fname.touched || fname.dirty) && fname.errors?.['minlength']){
             <span>min 3 char required</span>
           }

@@ -1,0 +1,63 @@
+<app-alert [alertType]="'Success'" [message]="alertMsg"></app-alert>
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h4>Get API</h4>
+    <h3>Get User List, Get Customer List</h3>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <button class="btn btn-success" (click)="GetAllUsers()">Get Users</button>
+    </div>
+    <div class="col-3">
+        <select class="form-select">
+            @for(item of userlist; track $index){
+                <option>{{item.name}}</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-2">
+        <button class="btn btn-success" (click)="GetAllCustomers()">Get Customers</button>
+    </div>
+    <div class="col-3">
+        <select class="form-select">
+            @for(itm of customerlist1; track $index){
+                <option>{{itm.name}}</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-2">
+        <button class="btn btn-secondary" (click)="GetAllCustomer()">Get List</button>
+    </div>
+    <div class="col-8">
+        <table class="table table-bordered">
+            <thead>
+                <th>Sr No</th>
+                <th>User Name</th>
+                <th>Full Name</th>
+                <th>Role</th>
+                <th>Project</th>
+                <th>Email</th>
+            </thead>
+            <tbody>
+                @for(item of customerlist; track $index){
+                <tr>
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.fullName}}</td>
+                    <td>{{item.role}}</td>
+                    <td>{{item.projectName}}</td>
+                    <td>{{item.emailId}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <button (click)="changeMsg()">Change Msg</button>
+    </div>
+</div>

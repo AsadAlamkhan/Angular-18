@@ -1,0 +1,68 @@
+<div class="mt-2 p-2 bg-secondary text-white">
+    <h1>Ng Conatiner</h1>
+</div>
+<div class="row pt-3">
+    <div class="col-4" *ngIf="isContainer">
+        <ng-container>
+            <p>This is from ng-container</p>
+        </ng-container>
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+        <ng-container *ngTemplateOutlet="temp">
+
+        </ng-container>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-4">
+        <button class="btn btn-primary" (click)="getUser()">Get User</button>
+    </div>
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr</th>
+                    <th>Name</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="isApi">
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <div class="spinner-grow text-muted"></div>
+                            <div class="spinner-grow text-primary"></div>
+                            <div class="spinner-grow text-success"></div>
+                            <div class="spinner-grow text-info"></div>
+                            <div class="spinner-grow text-warning"></div>
+                            <div class="spinner-grow text-danger"></div>
+                            <div class="spinner-grow text-secondary"></div>
+                            <div class="spinner-grow text-dark"></div>
+                            <div class="spinner-grow text-light"></div>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="!isApi">
+                    <tr *ngFor="let lst of userList; let srno=index">
+                        <td>{{srno+1}}</td>
+                        <td>{{lst.name}}</td>
+                        <td>{{lst.username}}</td>
+                        <td>{{lst.email}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4">
+        <ng-container *ngTemplateOutlet="temp">
+
+        </ng-container>
+    </div>
+</div>
+<ng-template #temp>
+    <p>Hi from ng Template</p>
+</ng-template>
